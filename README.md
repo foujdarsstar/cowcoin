@@ -29,7 +29,7 @@ It aims to build a trusted ecosystem with features such as staking, NFTs, commun
 - Phase 4: Ecosystem expansion, governance, broader listings  
 
 ## 🔹 Official Links
-- Website: https://thecowcoin.com  
+- Website: https://YOURNAME.github.io/cowcoin ,  
 - Explorer: https://etherscan.io/token/0x56b581d1851b92f562d574c0dc477e2551c0efb8
 
 ---
