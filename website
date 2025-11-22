@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CowCoin – Official Website</title>
+  <meta name="description" content="CowCoin (COW) is a community-driven ERC-20 token on Ethereum focused on transparency, security, and long-term ecosystem development." />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #050608;
+      color: #f5f5f5;
+      line-height: 1.6;
+    }
+    a { color: #ffd166; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(16px);
+      background: rgba(5, 6, 8, 0.85);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 20px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+    .logo-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #fff7c4, #ffb703);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: #1b1b1b;
+      font-weight: 900;
+    }
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      font-size: 0.92rem;
+    }
+    .btn-primary, .btn-outline {
+      border-radius: 999px;
+      padding: 8px 18px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: 1px solid transparent;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #ffb703, #ffd166);
+      color: #161616;
+    }
+    .btn-outline {
+      background: transparent;
+      border-color: rgba(255, 255, 255, 0.3);
+      color: #f5f5f5;
+    }
+    .btn-primary:hover {
+      filter: brightness(1.05);
+    }
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.06);
+    }
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px 20px 60px;
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
+      gap: 30px;
+      padding: 40px 0 50px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: 0.8rem;
+      margin-bottom: 14px;
+    }
+    .hero-title {
+      font-size: clamp(2.2rem, 3.2vw, 2.8rem);
+      font-weight: 750;
+      margin-bottom: 12px;
+    }
+    .hero-sub {
+      font-size: 0.98rem;
+      max-width: 520px;
+      color: #d4d4d4;
+      margin-bottom: 20px;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.82rem;
+      color: #b0b0b0;
+    }
+    .hero-meta span {
+      padding-left: 10px;
+      border-left: 2px solid rgba(255, 255, 255, 0.15);
+    }
+    .hero-card {
+      border-radius: 20px;
+      padding: 20px;
+      background: radial-gradient(circle at top, #383838, #141414);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.65);
+    }
+    .hero-card-title {
+      font-size: 0.95rem;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-bottom: 14px;
+      font-size: 0.86rem;
+    }
+    .metric {
+      padding: 10px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      background: rgba(0, 0, 0, 0.25);
+    }
+    .metric-label {
+      color: #bebebe;
+      font-size: 0.78rem;
+      margin-bottom: 2px;
+    }
+    .metric-value {
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      margin-right: 6px;
+    }
+    section {
+      padding: 40px 0 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    section:last-of-type {
+      border-bottom: none;
+    }
+    .section-title {
+      font-size: 1.35rem;
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+    .section-sub {
+      font-size: 0.92rem;
+      color: #c9c9c9;
+      margin-bottom: 16px;
+      max-width: 700px;
+    }
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.8fr);
+      gap: 26px;
+    }
+    .card {
+      border-radius: 18px;
+      padding: 18px 18px 16px;
+      background: rgba(10, 10, 10, 0.95);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      font-size: 0.9rem;
+    }
+    .card h3 {
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+    ul {
+      margin-left: 16px;
+      margin-top: 4px;
+    }
+    li { margin-bottom: 6px; }
+    .tokenomics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-top: 10px;
+    }
+    .tokenomics-item {
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      font-size: 0.88rem;
+    }
+    .tokenomics-item strong {
+      display: block;
+      margin-bottom: 3px;
+      font-size: 0.88rem;
+    }
+    .roadmap-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-top: 12px;
+    }
+    .phase-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #ffb703;
+      margin-bottom: 4px;
+    }
+    .muted {
+      font-size: 0.82rem;
+      color: #b3b3b3;
+      margin-top: 6px;
+    }
+    .code-box {
+      font-family: "SFMono-Regular", ui-monospace, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 0.78rem;
+      background: #050608;
+      border-radius: 10px;
+      padding: 10px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      overflow: auto;
+    }
+    .how-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 14px;
+      margin-top: 10px;
+      font-size: 0.9rem;
+    }
+    footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 16px 20px 26px;
+      font-size: 0.8rem;
+      color: #9b9b9b;
+    }
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: center;
+    }
+    .social-links {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    @media (max-width: 800px) {
+      .hero { grid-template-columns: 1fr; }
+      .two-col { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      main { padding-top: 16px; }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="nav">
+    <div class="logo">
+      <div class="logo-icon">🐄</div>
+      <span>CowCoin</span>
+    </div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#tokenomics">Tokenomics</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="#how-to-buy">How to Buy</a>
+      <a href="#contract">Contract</a>
+    </div>
+    <a href="#how-to-buy" class="btn-primary">Get CowCoin</a>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div>
+      <div class="hero-badge">
+        <span>Official CowCoin Site</span>
+        <span style="font-size:0.7rem;opacity:.8;">ERC-20 on Ethereum</span>
+      </div>
+      <h1 class="hero-title">A transparent, community-driven token built on Ethereum.</h1>
+      <p class="hero-sub">
+        CowCoin (COW) is an ERC-20 token focused on long-term ecosystem development, strong risk management,
+        and transparent operations. No unrealistic promises – just clear tokenomics, verifiable contracts,
+        and a community-first approach.
+      </p>
+      <div class="hero-actions">
+        <a href="#how-to-buy" class="btn-primary">How to buy COW</a>
+        <a href="#whitepaper" class="btn-outline">View Lightpaper</a>
+      </div>
+      <div class="hero-meta">
+        <span>Blockchain: Ethereum</span>
+        <span>Ticker: COW</span>
+        <span>Total supply: 1,000,000,000 COW</span>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-title">Key Token Snapshot</div>
+      <div class="metric-grid">
+        <div class="metric">
+          <div class="metric-label">Contract Address</div>
+          <div class="metric-value">
+            <span style="font-size:0.78rem;word-break:break-all;">
+              0x56b581d1851b92f562d574c0dc477e2551c0efb8
+            </span>
+          </div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Standard</div>
+          <div class="metric-value">ERC-20</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Decimals</div>
+          <div class="metric-value">18</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Network</div>
+          <div class="metric-value">Ethereum Mainnet</div>
+        </div>
+      </div>
+      <div>
+        <span class="tag">Community-driven</span>
+        <span class="tag">Fixed supply</span>
+        <span class="tag">Transparent</span>
+      </div>
+      <p class="muted">
+        Always verify the contract address yourself before interacting with any token. Nothing on this
+        website is financial advice.
+      </p>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <h2 class="section-title">About CowCoin</h2>
+    <p class="section-sub">
+      CowCoin is a professionally structured meme-inspired project designed for sustainable growth rather than
+      short-term speculation. The goal is to combine the simplicity and virality of meme tokens with disciplined
+      tokenomics, transparent communication, and gradual utility development.
+    </p>
+    <div class="two-col">
+      <div class="card">
+        <h3>Vision & Objective</h3>
+        <p>
+          CowCoin aims to build a long-term, community-centric ecosystem around an ERC-20 token with a fixed
+          supply and clear governance. The project focuses on:
+        </p>
+        <ul>
+          <li>Transparent on-chain tokenomics and open communication.</li>
+          <li>Gradual introduction of utilities such as NFTs, staking, and community rewards.</li>
+          <li>Maintaining healthy liquidity and responsible treasury management.</li>
+          <li>Providing a simple entry point for users who are new to digital assets.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Core Principles</h3>
+        <ul>
+          <li><strong>Transparency:</strong> Contract is publicly viewable and verifiable on Etherscan.</li>
+          <li><strong>No unrealistic promises:</strong> The project avoids guaranteeing returns or price targets.</li>
+          <li><strong>Security-minded:</strong> Simple, audited-friendly architecture prioritised over complexity.</li>
+          <li><strong>Community focus:</strong> Decisions around utilities and roadmap will involve holders.</li>
+        </ul>
+        <p class="muted">
+          CowCoin is a utility and community token, not an investment contract or guarantee of profit.
+          Users should always perform independent research.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOKENOMICS -->
+  <section id="tokenomics">
+    <h2 class="section-title">Tokenomics</h2>
+    <p class="section-sub">
+      CowCoin is deployed as a fixed-supply ERC-20 token with straightforward, verifiable parameters. The focus is
+      on clarity and sustainability rather than aggressive taxation models.
+    </p>
+    <div class="tokenomics-grid">
+      <div class="tokenomics-item">
+        <strong>Total Supply</strong>
+        1,000,000,000 COW (one billion tokens) minted at deployment. No additional minting.
+      </div>
+      <div class="tokenomics-item">
+        <strong>Decimals</strong>
+        18 decimal places, following the standard for ERC-20 tokens on Ethereum.
+      </div>
+      <div class="tokenomics-item">
+        <strong>Burn & Fees</strong>
+        A small portion of transfers may be allocated to burns or ecosystem functions, depending on the final
+        contract configuration and governance decisions.
+      </div>
+      <div class="tokenomics-item">
+        <strong>Initial Allocation</strong>
+        A portion of supply is reserved for liquidity, a portion for ecosystem incentives, and the remainder for
+        treasury and long-term development. Exact allocations will be shared transparently with the community.
+      </div>
+      <div class="tokenomics-item">
+        <strong>Liquidity & Locking</strong>
+        Liquidity pool details and any locking or vesting arrangements will be published once live on DEXs or CEXs.
+      </div>
+      <div class="tokenomics-item">
+        <strong>Ownership & Governance</strong>
+        Governance and decision-making will gradually move towards community input as the project matures.
+      </div>
+    </div>
+  </section>
+
+  <!-- ROADMAP -->
+  <section id="roadmap">
+    <h2 class="section-title">Roadmap</h2>
+    <p class="section-sub">
+      The roadmap is designed as a realistic, execution-oriented plan. All milestones are subject to change based on
+      market conditions, security reviews, and community feedback.
+    </p>
+    <div class="roadmap-grid">
+      <div class="card">
+        <div class="phase-label">Phase 1 – Foundation</div>
+        <h3>Launch & Validation</h3>
+        <ul>
+          <li>Token deployment on Ethereum.</li>
+          <li>Initial website and branding.</li>
+          <li>Basic community channels (Telegram, X/Twitter, etc.).</li>
+          <li>Smart-contract verification on Etherscan.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="phase-label">Phase 2 – Liquidity</div>
+        <h3>Market Access</h3>
+        <ul>
+          <li>Liquidity provisioning on decentralised exchange(s).</li>
+          <li>Listing requests to major tracking platforms (e.g., CoinGecko, CoinMarketCap).</li>
+          <li>Transparency reports for circulating supply and liquidity.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="phase-label">Phase 3 – Utility</div>
+        <h3>Product & Ecosystem</h3>
+        <ul>
+          <li>NFT collection and community reward mechanisms.</li>
+          <li>Light staking or holding incentives, where feasible.</li>
+          <li>Partner integrations and ecosystem collaborations.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="phase-label">Phase 4 – Expansion</div>
+        <h3>Scaling the Community</h3>
+        <ul>
+          <li>Exploration of additional utilities and use-cases.</li>
+          <li>Further exchange listings, subject to compliance and demand.</li>
+          <li>Continuous improvement based on community and security input.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW TO BUY -->
+  <section id="how-to-buy">
+    <h2 class="section-title">How to Buy CowCoin</h2>
+    <p class="section-sub">
+      The steps below describe a typical way to acquire ERC-20 tokens on Ethereum. Exact details may change depending
+      on the exchanges or wallets you use.
+    </p>
+    <div class="how-grid">
+      <div class="card">
+        <h3>1. Set up a wallet</h3>
+        <p>
+          Install a reputable Ethereum wallet such as MetaMask. Safely back up your seed phrase and never share it
+          with anyone. Ensure your wallet is set to the Ethereum Mainnet.
+        </p>
+      </div>
+      <div class="card">
+        <h3>2. Fund with ETH</h3>
+        <p>
+          Purchase ETH through a centralised exchange or on-ramp and send it to your wallet address. ETH is required
+          both to buy CowCoin and to pay gas fees on Ethereum.
+        </p>
+      </div>
+      <div class="card">
+        <h3>3. Connect to a DEX</h3>
+        <p>
+          Connect your wallet to a decentralised exchange that lists CowCoin (such as Uniswap once live). Verify the
+          official contract address before trading.
+        </p>
+      </div>
+      <div class="card">
+        <h3>4. Swap & store safely</h3>
+        <p>
+          Swap ETH for COW, then verify your transaction on Etherscan. Always double-check the contract address and
+          be cautious of phishing links. Consider using hardware wallets for larger holdings.
+        </p>
+      </div>
+    </div>
+    <p class="muted">
+      Digital assets are volatile and involve risk. Only allocate funds you can afford to lose and always perform
+      independent research.
+    </p>
+  </section>
+
+  <!-- CONTRACT -->
+  <section id="contract">
+    <h2 class="section-title">Smart Contract</h2>
+    <p class="section-sub">
+      Below is the official CowCoin contract address. Always compare this address with information from trusted
+      sources before interacting with the token.
+    </p>
+    <div class="card">
+      <h3>Official Contract Address</h3>
+      <div class="code-box">
+        0x56b581d1851b92f562d574c0dc477e2551c0efb8
+      </div>
+      <p class="muted">
+        You can view the contract, transfers, and holders on Etherscan by pasting the address above into the Etherscan
+        search bar.
+      </p>
+    </div>
+  </section>
+
+  <!-- WHITEPAPER / LIGHTPAPER PLACEHOLDER -->
+  <section id="whitepaper">
+    <h2 class="section-title">Lightpaper</h2>
+    <p class="section-sub">
+      A detailed lightpaper outlining tokenomics, risk factors, and ecosystem plans will be published here.
+      This document will serve as a high-level overview and is not a legal or investment prospectus.
+    </p>
+    <div class="card">
+      <p>
+        Until the full lightpaper is released, this website functions as the primary source of official information.
+        Any future documents will be clearly linked at:
+      </p>
+      <div class="code-box">
+        https://thecowcoin.com/whitepaper.pdf
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>© <span id="year"></span> CowCoin. All rights reserved.</div>
+    <div class="social-links">
+      <!-- Replace # with your real links -->
+      <a href="#" target="_blank" rel="noopener noreferrer">Telegram</a>
+      <span>·</span>
+      <a href="#" target="_blank" rel="noopener noreferrer">Twitter (X)</a>
+      <span>·</span>
+      <a href="#" target="_blank" rel="noopener noreferrer">Discord</a>
+    </div>
+  </div>
+  <div class="footer-inner" style="margin-top:6px;">
+    <div>
+      Disclaimer: CowCoin is an experimental digital asset. Nothing on this website constitutes financial, legal, or tax advice.
+      Always conduct your own research and comply with local regulations.
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
